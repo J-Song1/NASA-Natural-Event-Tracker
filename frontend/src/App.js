@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Map from './components/Map'
+import Header from './components/Header'
 import Loader from './components/Loader'
 
 require('dotenv').config();
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <div>
+      <Header />
       {!loading ? <Map eventData={eventData} /> : <Loader />}
     </div>
   );
