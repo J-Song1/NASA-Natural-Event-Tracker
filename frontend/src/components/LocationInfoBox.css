@@ -3,7 +3,7 @@
   top: 60px;
   right: 10px;
   width: 350px;
-  min-height: 200px;
+  min-height: 150px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
@@ -17,5 +17,5 @@
 }
 
 .location-info li {
-  padding: 5px 0;
+  padding: 05px 0;
 }

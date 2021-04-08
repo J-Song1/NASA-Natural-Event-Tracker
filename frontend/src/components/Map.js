@@ -8,16 +8,25 @@ const Map = ({ eventData, center, zoom }) => {
   const [locationInfo, setLocationInfo] = useState(null)
 
   const markers = eventData.map(event => {
-    if (event.categories[0].id === 8) {
-      return <LocationMarker
-        lat={event.geometries[0].coordinates[1]}
-        lng={event.geometries[0].coordinates[0]}
-        onClick={() => setLocationInfo({ id: event.id, title: event.title })}
-      />
-    }
+    if (event.geometries[0].type === "Polygon") return null;
 
-    return null;
-  });
+    return event.geometries.map(geometry => {
+      return <LocationMarker
+        lat={geometry.coordinates[1]}
+        lng={geometry.coordinates[0]}
+        type={event.categories[0].id}
+        onClick={() => setLocationInfo({
+          id: event.id,
+          category: event.categories[0].title,
+          title: event.title,
+          coordinates: geometry.coordinates,
+          date: geometry.date.substr(0, 10)
+        })}
+      />
+    });
+  }).flat();
+
+  console.log(markers)
 
   return (
     <div className="map">
@@ -36,10 +45,10 @@ const Map = ({ eventData, center, zoom }) => {
 
 Map.defaultProps = {
   center: {
-    lat: 42.3265,
-    lng: -122.8756
+    lat: 44.6713700,
+    lng: -103.8521500
   },
-  zoom: 6
+  zoom: 4
 }
 
 export default Map

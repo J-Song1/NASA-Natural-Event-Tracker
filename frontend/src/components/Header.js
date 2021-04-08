@@ -5,7 +5,7 @@ import './Header.css'
 const Header = () => {
   return (
     <header className="header">
-      <h1><Icon icon={locationIcon} />Wildfire Tracker (Powered by NASA)</h1>
+      <h1>Earth Observatory Natural Event Tracker (Powered by NASA API)</h1>
     </header>
   );
 }

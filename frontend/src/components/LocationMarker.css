@@ -1,4 +1,19 @@
 .location-icon {
   font-size: 2rem;
+}
+
+.location-marker[type="8"] .location-icon {
   color: red;
+}
+
+.location-marker[type="10"] .location-icon {
+  color: black;
+}
+
+.location-marker[type="12"] .location-icon {
+  color: red;
+}
+
+.location-marker[type="15"] .location-icon {
+  color: white;
 }
